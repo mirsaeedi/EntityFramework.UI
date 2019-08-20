@@ -1,0 +1,63 @@
+﻿@model EntityFrameworkUI.Model.EntityInstance[]
+
+@{
+    Layout = "_Layout";
+    var InstanceSchema = Model[0].Schema;
+}
+
+
+@await Html.PartialAsync("_EntityHeader", Model[0].EntityType)
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            @foreach (var column in InstanceSchema)
+            {
+                <th> @column.DisplayName </th>
+            }
+            <th> Edit </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var entityInstance in Model)
+        {
+
+            <tr>
+                @foreach (var field in entityInstance.Fields)
+                {
+                    <td>@field.Value</td>
+                }
+                <td>
+                    <a class="btn btn-success" href="@(Url.RouteUrl("GetEntity",new { tableName=ViewBag.TableName}) + "?" + entityInstance.PrimaryKey.Select(a=>a.Schema.PropertyName + "=" + a.Value).Aggregate((a,b)=> a + "&" + b))">
+                        <i class="fas fa-cog"></i>
+                        Edit
+                    </a> 
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            @foreach (var column in InstanceSchema)
+            {
+                <th> @column.DisplayName </th>
+            }
+        </tr>
+    </tfoot>
+</table>
+
+<div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
+    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

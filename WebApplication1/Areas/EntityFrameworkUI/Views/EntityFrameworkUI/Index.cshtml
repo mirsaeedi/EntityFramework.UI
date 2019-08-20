@@ -1,0 +1,16 @@
+﻿@model Microsoft.EntityFrameworkCore.Metadata.IEntityType
+
+@{
+    Layout = "_Layout";
+    var Properties = Model.GetProperties().ToArray();
+}
+
+
+
+
+<script>
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>

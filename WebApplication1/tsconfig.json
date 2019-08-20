@@ -1,0 +1,23 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "pretty": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": false,
+    "target": "es5",
+    "module": "es6",
+    "sourceMap": true,
+    "sourceRoot": "content/js",
+    "outDir": "wwwroot/app",
+    "allowJs": true,
+    "noImplicitAny": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

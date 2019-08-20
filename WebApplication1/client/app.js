@@ -1,0 +1,9 @@
+﻿import 'jquery';
+import 'bootstrap';
+import 'popper.js';
+import 'datatables.net';
+import 'datatables.net-bs4';
+import 'datatables.net-bs4/css/dataTables.bootstrap4.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import './site.css';
